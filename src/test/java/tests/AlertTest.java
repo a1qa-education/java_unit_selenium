@@ -1,4 +1,4 @@
-package selenium;
+package tests;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -14,5 +14,4 @@ public class AlertTest extends BaseTest {
         // todo: accept alert
         // todo: assert success message
     }
-
 }
