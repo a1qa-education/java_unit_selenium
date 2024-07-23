@@ -9,11 +9,11 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 public abstract class BaseTest {
-    protected final String URL = "https://the-internet.herokuapp.com/";
-    protected final int MAX_WAIT = 10;
-    protected final String PRECISE_TEXT_XPATH = "//*[text()='%s']";
-    protected final String PARTICULAR_TEXT_XPATH = "//*[contains(text(),'%s')]";
-    protected final String RELATIVE_RESOURCE_PATH = "src/test/resources/";
+    protected static final String URL = "https://the-internet.herokuapp.com/";
+    protected static final int MAX_WAIT = 10;
+    protected static final String PRECISE_TEXT_XPATH = "//*[text()='%s']";
+    protected static final String PARTICULAR_TEXT_XPATH = "//*[contains(text(),'%s')]";
+    protected static final String RELATIVE_RESOURCE_PATH = "src/test/resources/";
     protected WebDriver driver;
     protected WebDriverWait wait;
 
