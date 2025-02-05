@@ -19,6 +19,7 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void setup() {
+        // TODO: add the logic to change the default folder for downloads here. Read the notes section for the task on the training platform.
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(MAX_WAIT));
