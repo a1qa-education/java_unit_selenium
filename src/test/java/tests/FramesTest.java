@@ -1,29 +1,64 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.UUID;
+import java.time.Duration;
 
-public class FramesTest extends BaseTest {
-    private final String initText = "Your content goes here.";
-    private final String textIsNotDisplayedMsg = "Text is not displayed";
-    private final By frames = By.xpath(String.format(PRECISE_TEXT_XPATH, "Frames"));
-    private final By iframe = By.xpath(String.format(PRECISE_TEXT_XPATH, "iFrame"));
-    private final By edit = By.xpath(String.format(PRECISE_TEXT_XPATH, "Edit"));
-    private final By undo = By.xpath(String.format(PRECISE_TEXT_XPATH, "Undo"));
-    private final String randomText = UUID.randomUUID().toString();
+public class FramesTest {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private final String URL = "https://the-internet.herokuapp.com/frames";
+    private final int MAX_WAIT = 10;
+
+    @BeforeMethod
+    public void setup() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(MAX_WAIT));
+        driver.get(URL);
+    }
+
+    @AfterMethod
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @Test
     public void iFrameTest() {
-        driver.findElement(frames).click();
-        driver.findElement(iframe).click();
-        //todo: input text to the text field
-        Assert.assertTrue(driver.findElement(By.xpath(String.format(PRECISE_TEXT_XPATH, initText + randomText))).isDisplayed(),
-                textIsNotDisplayedMsg);
-        driver.findElement(edit).click();
-        driver.findElement(undo).click();
-        // todo: assert text is not displayed
+        // Click on iFrame link
+        WebElement iFrameLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("iFrame")));
+        iFrameLink.click();
+
+        // Wait for iframe to be present and switch to it
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("mce_0_ifr")));
+        driver.switchTo().frame(iframe);
+
+        // Wait for body inside TinyMCE to be clickable
+        WebElement body = wait.until(ExpectedConditions.elementToBeClickable(By.id("tinymce")));
+
+        // Focus and type
+        body.click(); // make sure it's focused
+        body.clear(); // clear any existing text
+        String text = "Hello Selenium!";
+        body.sendKeys(text);
+
+        // Assert text
+        Assert.assertEquals(body.getText(), text, "Text inside TinyMCE did not match");
+
+        // Switch back to main content
+        driver.switchTo().defaultContent();
+        Assert.assertTrue(driver.findElement(By.tagName("h3")).isDisplayed(), "Main page header not visible");
     }
 }
