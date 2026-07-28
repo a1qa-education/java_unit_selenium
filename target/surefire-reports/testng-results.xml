@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-28T19:14:53 GMT+04:00" name="Surefire suite" finished-at="2026-07-28T19:15:34 GMT+04:00" duration-ms="40959">
+    <groups>
+    </groups>
+    <test started-at="2026-07-28T19:14:53 GMT+04:00" name="Surefire test" finished-at="2026-07-28T19:15:34 GMT+04:00" duration-ms="40959">
+      <class name="tests.FileDownloadTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.FileDownloadTest@25b485ba]" started-at="2026-07-28T19:15:13 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:17 GMT+04:00" duration-ms="3264" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="fileDownloadTest()[pri:0, instance:tests.FileDownloadTest@25b485ba]" started-at="2026-07-28T19:15:17 GMT+04:00" name="fileDownloadTest" finished-at="2026-07-28T19:15:19 GMT+04:00" duration-ms="2548" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fileDownloadTest -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:tests.FileDownloadTest@25b485ba]" started-at="2026-07-28T19:15:19 GMT+04:00" name="cleanUp" finished-at="2026-07-28T19:15:19 GMT+04:00" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.FileDownloadTest@25b485ba]" started-at="2026-07-28T19:15:19 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:20 GMT+04:00" duration-ms="342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.FileDownloadTest -->
+      <class name="tests.DataTableTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.DataTableTests@75c072cb]" started-at="2026-07-28T19:15:02 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:05 GMT+04:00" duration-ms="3262" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="dataTableTest()[pri:0, instance:tests.DataTableTests@75c072cb]" started-at="2026-07-28T19:15:05 GMT+04:00" name="dataTableTest" finished-at="2026-07-28T19:15:05 GMT+04:00" duration-ms="493" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataTableTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.DataTableTests@75c072cb]" started-at="2026-07-28T19:15:05 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:05 GMT+04:00" duration-ms="165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.DataTableTests -->
+      <class name="tests.DynamicControlsTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.DynamicControlsTest@1f1c7bf6]" started-at="2026-07-28T19:15:05 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:09 GMT+04:00" duration-ms="3990" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="dynamicControlsTest()[pri:0, instance:tests.DynamicControlsTest@1f1c7bf6]" started-at="2026-07-28T19:15:09 GMT+04:00" name="dynamicControlsTest" finished-at="2026-07-28T19:15:13 GMT+04:00" duration-ms="3842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dynamicControlsTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.DynamicControlsTest@1f1c7bf6]" started-at="2026-07-28T19:15:13 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:13 GMT+04:00" duration-ms="177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.DynamicControlsTest -->
+      <class name="tests.FramesTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.FramesTest@1d548a08]" started-at="2026-07-28T19:15:24 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:29 GMT+04:00" duration-ms="4449" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="nestedFramesTest()[pri:0, instance:tests.FramesTest@1d548a08]" started-at="2026-07-28T19:15:29 GMT+04:00" name="nestedFramesTest" finished-at="2026-07-28T19:15:30 GMT+04:00" duration-ms="1060" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- nestedFramesTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.FramesTest@1d548a08]" started-at="2026-07-28T19:15:30 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:30 GMT+04:00" duration-ms="181" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.FramesTest -->
+      <class name="tests.FileUploadTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.FileUploadTest@5ef60048]" started-at="2026-07-28T19:15:20 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:23 GMT+04:00" duration-ms="3473" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="fileUploadTest()[pri:0, instance:tests.FileUploadTest@5ef60048]" started-at="2026-07-28T19:15:23 GMT+04:00" name="fileUploadTest" finished-at="2026-07-28T19:15:24 GMT+04:00" duration-ms="1071" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fileUploadTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.FileUploadTest@5ef60048]" started-at="2026-07-28T19:15:24 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:24 GMT+04:00" duration-ms="150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.FileUploadTest -->
+      <class name="tests.MultipleWindowsTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.MultipleWindowsTest@16aa0a0a]" started-at="2026-07-28T19:15:30 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:33 GMT+04:00" duration-ms="3391" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="multipleWindowsTest()[pri:0, instance:tests.MultipleWindowsTest@16aa0a0a]" started-at="2026-07-28T19:15:33 GMT+04:00" name="multipleWindowsTest" finished-at="2026-07-28T19:15:34 GMT+04:00" duration-ms="544" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- multipleWindowsTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.MultipleWindowsTest@16aa0a0a]" started-at="2026-07-28T19:15:34 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:34 GMT+04:00" duration-ms="157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.MultipleWindowsTest -->
+      <class name="tests.BasicAuthTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.BasicAuthTest@5b0abc94]" started-at="2026-07-28T19:14:58 GMT+04:00" name="setup" finished-at="2026-07-28T19:15:01 GMT+04:00" duration-ms="3183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="basicAuthTest()[pri:0, instance:tests.BasicAuthTest@5b0abc94]" started-at="2026-07-28T19:15:01 GMT+04:00" name="basicAuthTest" finished-at="2026-07-28T19:15:01 GMT+04:00" duration-ms="430" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- basicAuthTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.BasicAuthTest@5b0abc94]" started-at="2026-07-28T19:15:01 GMT+04:00" name="teardown" finished-at="2026-07-28T19:15:02 GMT+04:00" duration-ms="203" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.BasicAuthTest -->
+      <class name="tests.AlertTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.AlertTest@77e9807f]" started-at="2026-07-28T19:14:53 GMT+04:00" name="setup" finished-at="2026-07-28T19:14:57 GMT+04:00" duration-ms="3981" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="alertTest()[pri:0, instance:tests.AlertTest@77e9807f]" started-at="2026-07-28T19:14:57 GMT+04:00" name="alertTest" finished-at="2026-07-28T19:14:58 GMT+04:00" duration-ms="340" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alertTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.AlertTest@77e9807f]" started-at="2026-07-28T19:14:58 GMT+04:00" name="teardown" finished-at="2026-07-28T19:14:58 GMT+04:00" duration-ms="216" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.AlertTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
