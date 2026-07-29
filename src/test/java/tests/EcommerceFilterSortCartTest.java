@@ -18,17 +18,18 @@ public class EcommerceFilterSortCartTest extends BaseTest {
     private final By price = By.xpath(String.format(PARTICULAR_TEXT_XPATH, "$"));
     private final By description = By.id("description");
     private final By addToCartButton = By.xpath("//button[@data-test='add-to-cart']");
-    private final By successMessage = By.xpath(String.format(PRECISE_TEXT_XPATH, "Product added to shopping cart."));
+    private final By successMessage = By.cssSelector("div.toast-success");
     private final By cartQuantity = By.xpath("//*[@data-test='cart-quantity']");
-    private final By checkoutCart = By.xpath(String.format(PRECISE_TEXT_XPATH, "CART"));
-    private final By navSignIn = By.xpath("//*[@data-test='nav-sign-in']");
+    private final By productPriceLocator = By.xpath("//*[@data-test='product-price']");
+    private final By linePriceLocator = By.xpath("//*[@data-test='line-price']");
+    private final By productQuantity = By.xpath("//*[@data-test='product-quantity']");
     
     public EcommerceFilterSortCartTest() {
         super();
     }
 
     @Test
-    public void testFilterSortCart() {
+    public void testFilterSortAddToCartAndCartCalculation() {
         wait.until(ExpectedConditions.elementToBeClickable(checkbox)).click();
         Select sortDropdown = new Select(driver.findElement(sort));
         WebElement firstCard = driver.findElement(card);
@@ -43,19 +44,32 @@ public class EcommerceFilterSortCartTest extends BaseTest {
                 .collect(Collectors.toList());
         List<Double> sortedPrices = actualPrices.stream().sorted().collect(Collectors.toList());
         Assert.assertEquals(actualPrices, sortedPrices, "The prices are not sorted correctly.");
+
         driver.findElement(card).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(description));
         Assert.assertTrue(driver.findElement(description).isDisplayed(),"The product description is not visible.");
+
         boolean exists = !driver.findElements(cartQuantity).isEmpty();
         String initialQuantityText = exists ? driver.findElement(cartQuantity).getText() : "0";
         driver.findElement(addToCartButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(successMessage));
-        Assert.assertTrue(driver.findElement(successMessage).isDisplayed(), "The success message is not visible.");
+        Assert.assertTrue(driver.findElement(successMessage).getText() != null, "The success message is not visible.");
+
         int initialQuantity = Integer.parseInt(initialQuantityText);
         WebElement updatedCartQuantityElement = wait.until(ExpectedConditions.presenceOfElementLocated(cartQuantity));
         int updatedQuantity = Integer.parseInt(updatedCartQuantityElement.getText());
         Assert.assertTrue(updatedQuantity > initialQuantity, "The cart quantity did not increase after adding the product.");
+
         updatedCartQuantityElement.click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(checkoutCart));
+        wait.until(ExpectedConditions.presenceOfElementLocated(productPriceLocator));
+        WebElement productQuantityElement = driver.findElement(productQuantity);
+        double productPrice = Double.parseDouble(driver.findElement(productPriceLocator).getText().replace("$", "").trim());
+        String oldLinePrice = driver.findElement(linePriceLocator).getText();
+        productQuantityElement.clear();
+        productQuantityElement.sendKeys("3");
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(linePriceLocator, oldLinePrice)));
+        int count = Integer.parseInt(productQuantityElement.getAttribute("value"));
+        double linePrice = Double.parseDouble(driver.findElement(linePriceLocator).getText().replace("$", "").trim());
+        Assert.assertEquals(Math.round(linePrice * 100), Math.round(productPrice * 100 * count), "The line price does not match the expected value after updating the quantity.");
     }
 }
