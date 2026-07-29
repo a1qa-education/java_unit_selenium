@@ -16,6 +16,7 @@ public class EcommerceFilterSortCartTest extends BaseTest {
     private final By sort = By.xpath("//select[@class='form-select']");
     private final By card = By.cssSelector("a.card");
     private final By price = By.xpath(String.format(PARTICULAR_TEXT_XPATH, "$"));
+    private final By description = By.id("description");
     
     public EcommerceFilterSortCartTest() {
         super();
@@ -37,5 +38,8 @@ public class EcommerceFilterSortCartTest extends BaseTest {
                 .collect(Collectors.toList());
         List<Double> sortedPrices = actualPrices.stream().sorted().collect(Collectors.toList());
         Assert.assertEquals(actualPrices, sortedPrices, "The prices are not sorted correctly.");
+        driver.findElement(card).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(description));
+        Assert.assertTrue(driver.findElement(description).isDisplayed(),"The product description is not visible.");
     }
 }
