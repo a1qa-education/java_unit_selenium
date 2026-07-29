@@ -17,6 +17,11 @@ public class EcommerceFilterSortCartTest extends BaseTest {
     private final By card = By.cssSelector("a.card");
     private final By price = By.xpath(String.format(PARTICULAR_TEXT_XPATH, "$"));
     private final By description = By.id("description");
+    private final By addToCartButton = By.xpath("//button[@data-test='add-to-cart']");
+    private final By successMessage = By.xpath(String.format(PRECISE_TEXT_XPATH, "Product added to shopping cart."));
+    private final By cartQuantity = By.xpath("//*[@data-test='cart-quantity']");
+    private final By checkoutCart = By.xpath(String.format(PRECISE_TEXT_XPATH, "CART"));
+    private final By navSignIn = By.xpath("//*[@data-test='nav-sign-in']");
     
     public EcommerceFilterSortCartTest() {
         super();
@@ -41,5 +46,16 @@ public class EcommerceFilterSortCartTest extends BaseTest {
         driver.findElement(card).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(description));
         Assert.assertTrue(driver.findElement(description).isDisplayed(),"The product description is not visible.");
+        boolean exists = !driver.findElements(cartQuantity).isEmpty();
+        String initialQuantityText = exists ? driver.findElement(cartQuantity).getText() : "0";
+        driver.findElement(addToCartButton).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(successMessage));
+        Assert.assertTrue(driver.findElement(successMessage).isDisplayed(), "The success message is not visible.");
+        int initialQuantity = Integer.parseInt(initialQuantityText);
+        WebElement updatedCartQuantityElement = wait.until(ExpectedConditions.presenceOfElementLocated(cartQuantity));
+        int updatedQuantity = Integer.parseInt(updatedCartQuantityElement.getText());
+        Assert.assertTrue(updatedQuantity > initialQuantity, "The cart quantity did not increase after adding the product.");
+        updatedCartQuantityElement.click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(checkoutCart));
     }
 }
