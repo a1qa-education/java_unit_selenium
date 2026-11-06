@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class MultipleWindowsTest extends BaseTest {
-    private final By MULTIPLE_WINDOWS_LINK_LOC = By.xpath(String.format(PRECISE_TEXT_XPATH, "Multiple Windows"));
-    private final By CLICK_HERE_LINK_LOC = By.xpath(String.format(PRECISE_TEXT_XPATH, "Click Here"));
+    private final By MULTIPLE_WINDOWS_LINK_LOC = By.linkText("Multiple Windows");
+    private final By CLICK_HERE_LINK_LOC = By.linkText("Click Here");
 
     @Test
     public void multipleWindowsTest() {
