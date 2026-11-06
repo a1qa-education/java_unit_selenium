@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class FramesTest extends BaseTest {
-    private final By FRAMES_LINK_LOC = By.xpath(String.format(PRECISE_TEXT_XPATH, "Frames"));
-    private final By NESTED_FRAMES_LINK_LOC = By.xpath(String.format(PRECISE_TEXT_XPATH, "Nested Frames"));
+    private final By FRAMES_LINK_LOC = By.linkText("Frames");
+    private final By NESTED_FRAMES_LINK_LOC = By.linkText("Nested Frames");
 
     @Test
     public void nestedFramesTest() {
